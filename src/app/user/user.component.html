@@ -1,4 +1,10 @@
 <body>
     <p>Hello guys today we will be searching user names and public repos on github</p>
     <button (click)="getUsers()">Search Users</button>
+    <div class="row">
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">{{user.user}}</p>
+            <footer class="blockquote-footer"><cite>{{user.author}}</cite></footer>
+        </blockquote>
+    </div>
 </body>

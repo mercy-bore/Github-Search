@@ -4,6 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GithubService {
+  user: any;
 
+
+  getUsers(){
+    return this.user
+
+  }
   constructor() { }
 }
