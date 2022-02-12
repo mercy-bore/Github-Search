@@ -16,19 +16,7 @@ user!:User
    }
 
   ngOnInit(): void {
-  //   interface ApiResponse{
-  //     author:string;
-  //     quote:string;
-  //   }
-
-  //   this.http.get<ApiResponse>('https://api.github.com/users/macc254?access_token=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').subscribe(data=>{
-  //     // Succesful API request
-  //     this.user = new User(data.author, data.quote)
-  //   },err=>{
-  //     this.user = new User("Hello","We will be back soon!")
-  //     console.log("An error occurred")
-  // })
-
+  
   this.githubService.profileRequest(); 
   this.user = this.githubService.user
   }

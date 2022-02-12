@@ -31,7 +31,7 @@ export class GithubService {
         resolve()
       },
       error=>{
-        this.user.name = "Never, never, never give up"
+        this.user.name = "What is your username?"
         this.user.bio = "Winston Churchill"
 
         reject(error)
@@ -42,18 +42,18 @@ export class GithubService {
   repoRequest(){
     interface ApiResponse{
       name:string;
-      bio:string;
+      id:number;
     }
     let promise = new Promise<void>((resolve,reject)=>{
       this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response=>{
-        this.user.name = response!.name
-        this.user.bio = response!.bio
+        this.repo.name = response!.name
+        this.repo.id = response!.id
 
         resolve()
       },
       error=>{
-        this.user.name = "Never, never, never give up"
-        this.user.bio = "Winston Churchill"
+        this.repo.name = "What is your repo name?"
+        this.repo.id = 495
 
         reject(error)
       })
