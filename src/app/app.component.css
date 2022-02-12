@@ -1,5 +1,8 @@
 .container-fluid {
     background-image: url('./images/a2.jpg');
-    color: whitesmoke;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     height: 700px;
+    color: whitesmoke;
 }
