@@ -6,6 +6,7 @@ import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RepoComponent } from './repo/repo.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppComponent,
     UserComponent,
     RepoComponent,
-    NavbarComponent
+    NavbarComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
