@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RepoComponent } from './repo/repo.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    RepoComponent
+    RepoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
