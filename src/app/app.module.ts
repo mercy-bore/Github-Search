@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RepoComponent } from './repo/repo.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormComponent } from './form/form.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { FormComponent } from './form/form.component';
     UserComponent,
     RepoComponent,
     NavbarComponent,
-    FormComponent
+    FormComponent,
+    NotFoundComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
