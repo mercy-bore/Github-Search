@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GithubService } from '../github.service';
 import { HttpClient } from '@angular/common/http';
-// import { User } from '../user-class/user';
-
+import {User} from '../user-class/user';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -10,12 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserComponent implements OnInit {
 
-users:String[] 
-// user!:User;
-githubservice:any;
+user!:User
+// githubservice:any;
  
-  constructor(githubService:GithubService,private http:HttpClient) {
-    this.users = githubService.getUsers();
+  constructor( private githubService:GithubService,private http:HttpClient) {
    }
 
   ngOnInit(): void {
@@ -31,15 +28,19 @@ githubservice:any;
   //     this.user = new User("Hello","We will be back soon!")
   //     console.log("An error occurred")
   // })
+
+  this.githubService.profileRequest(); 
+  this.user = this.githubService.user
   }
 
-  getUsers(){
-    this.githubservice.getData().subscribe((data: any)=>{
-      // Succesful API request
-      console.log(data) ;   
-  })
+  // getUsers(){
+  //   this.githubservice.getData().subscribe((data: any)=>{
+  //     // Succesful API request
+  //     console.log(data) ;   
+  //     this.user=data;
+  // })
 }
   
   
 
-}
+

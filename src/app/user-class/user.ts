@@ -1,4 +1,4 @@
-// export class User {
-//     constructor(public user_url:string, public avatar_url:string ){}
+export class User {
+    constructor(public name:string, public bio:string  ){}
 
-// }
+}
