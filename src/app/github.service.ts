@@ -1,60 +1,90 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {environment } from '../environments/environment';
 import {User} from './user-class/user';
 import {Repo} from './repo-class/repo';
+
 @Injectable({
   providedIn: 'root'
 })
 export class GithubService {
   user!: User;
-  repo!:Repo;
+  repo!: any
 
  
   constructor(private http:HttpClient) {
-    this.user = new User("","");
+    this.user = new User("","","","",0,0,0,"","");
     this.repo = new Repo(0,"");
     console.log("service is ready");
   }
 
 
-  profileRequest(){
+  profileRequest(searchItem: string){
     interface ApiResponse{
-      name:string;
-      bio:string;
+       avatar_url:string,
+       name:string,
+       bio:string,
+       login:string,
+       users:number,
+       following:number,
+       followers:number, 
+       html_url:string,
+       public_repos:string,
     }
+    
+    let headers = new HttpHeaders({
+      authorization: 'token' + environment.api_key,
+    })
+    let options = { headers: headers }
+    let completeUrl = environment.apiUrl + searchItem;
+
     let promise = new Promise<void>((resolve,reject)=>{
-      this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response=>{
+      this.http.get<ApiResponse>(completeUrl,options).toPromise().then(response=>{
+        this.user.avatar_url = response!.avatar_url;
         this.user.name = response!.name
         this.user.bio = response!.bio
+        this.user.login = response!.login
+        this.user.users = response!.users
+        this.user.following = response!.following
+        this.user.followers = response!.followers
+        this.user.html_url = response!.html_url
+        this.user.public_repos = response!.public_repos
 
         resolve()
+
       },
       error=>{
-        this.user.name = "What is your username?"
-        this.user.bio = "Winston Churchill"
+        console.log("error")
+        reject(error)
 
         reject(error)
       })
     })
     return promise
   }
-  repoRequest(){
-    interface ApiResponse{
+  repoRequest(searchItem: string){
+    interface ApiResponseI{
       name:string;
       id:number;
     }
-    let promise = new Promise<void>((resolve,reject)=>{
-      this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response=>{
-        this.repo.name = response!.name
-        this.repo.id = response!.id
-
-        resolve()
+    let headers = new HttpHeaders({
+      authorization: 'token' + environment.api_key,
+    })
+    let options = { headers: headers }
+    let completeUrl = environment.apiUrl + searchItem + '/repos';
+    
+    let promise = new Promise((resolve,reject)=>{
+      this.http.get<ApiResponseI>(completeUrl,options).toPromise().then(response=>{
+        this.repo = response!
+        // let url = environment.apiUrl  + searchItem + '/repos'+ '?api_Key=' + environment.apiKey;
+        // let promise = new Promise((resolve, reject) => {
+        //   this.http.get<ApiResponseII>(url).toPromise().then(response => {
+        //     this.userRepos=response!;
+        resolve(response)
       },
       error=>{
-        this.repo.name = "What is your repo name?"
-        this.repo.id = 495
-
+       
+      console.log("error")
         reject(error)
       })
     })

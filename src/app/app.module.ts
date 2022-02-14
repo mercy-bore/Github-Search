@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormComponent } from './form/form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HighlightDirective } from './highlight.directive';
+import { DatePipe } from './date.pipe';
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { HighlightDirective } from './highlight.directive';
     NavbarComponent,
     FormComponent,
     NotFoundComponent,
-    HighlightDirective
+    HighlightDirective,
+    DatePipe,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

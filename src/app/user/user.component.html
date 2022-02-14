@@ -4,14 +4,31 @@
             <app-form></app-form>
         </div>
         <div class="col-md-6">
-            <p class=" text-center ">Hello guys today we will be searching user names and public repos on github</p>
-            <div class="row">
-                <blockquote class="blockquote text-center">
-                    <p class="mb-0">Your username is :{{user.name}}</p><br>
-                    <footer class="blockquote-footer text-light"><cite> Your Bio is :{{user.bio}}</cite></footer>
-                </blockquote>
+            <h3>User Profile</h3>
+            <div *ngIf="user" class="prof row">
+                <div class="col-md-6">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{user.avatar_url}}" class="rounded-circle" alt="...">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="view">
+                        <h5 class="card-title">Username:{{user.login}}</h5>
+                        <p class="card-text">Bio:{{user.bio}}</p>
+                    </div>
+                    <div class="follows ">
+                        <p class="lower "><span>Followers:</span>{{user.followers}} </p>
+                        <p><span>Following:</span>{{user.following}}</p>
+                    </div>
+                    <div class="repos ">
+                        <p> Repositories:{{user.public_repos}}</p>
+                    </div>
+                    <div class="view">
+                        <p><a href={{user.html_url}} class=" btn btn-success ">view profile on github</a></p>
+                    </div>
+                </div>
+
+
             </div>
-            <app-repo></app-repo>
         </div>
     </div>
-</div>
