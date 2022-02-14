@@ -12,6 +12,8 @@ export class UserComponent implements OnInit {
 
 user!:User
 repo!:any
+userRepos!:any;
+username:string ='macc254'
 // githubservice:any;
  
   constructor( private githubService:GithubService,private http:HttpClient) {
@@ -40,4 +42,8 @@ searchProfile(searchItem: string){
   
 
 
+
+function searchItem(searchItem: any) {
+  throw new Error('Function not implemented.');
+}
 

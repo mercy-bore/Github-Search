@@ -32,3 +32,16 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <h3>Repos</h3>
+        <div class="card-body " *ngFor="let repo of userRepos">
+            <div class="card row">
+                <div class="card-body">
+                    <h3>{{repo.name}}</h3>
+                    <p>Created: {{repo.created_at | completeDate}}</p>
+                    <p>Language Used: {{repo.language}}</p>
+                    <p>{{repo.description}}</p>
+                    <span><a href="{{repo.html_url}}" target="_blank" class="btn btn-success">View Project</a></span>
+                </div>
+            </div>
+        </div>

@@ -9,12 +9,13 @@ import {Repo} from './repo-class/repo';
 })
 export class GithubService {
   user!: User;
-  repo!: any
-
+  repo!: any;
+  username!: string;
+  repoName!: string;
  
   constructor(private http:HttpClient) {
     this.user = new User("","","","",0,0,0,"","");
-    this.repo = new Repo(0,"");
+    this.repo = new Repo(0,"","","","","");
     console.log("service is ready");
   }
 
@@ -66,6 +67,9 @@ export class GithubService {
     interface ApiResponseI{
       name:string;
       id:number;
+      repos_url:string;
+      html_url:string;
+
     }
     let headers = new HttpHeaders({
       authorization: 'token' + environment.api_key,
@@ -89,5 +93,12 @@ export class GithubService {
       })
     })
     return promise
+  }
+  UpdateUser(username:string) {
+    this.username = username;
+  }
+
+  UpdateRepo(repo:string) {
+    this.repoName = repo;
   }
 }

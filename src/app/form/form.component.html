@@ -2,5 +2,6 @@
 <form>
     <div class="form-group card">
         <label for="name">Search</label>
-        <input type="search" class="form-control" placeholder="Enter username or repository name.."></div>
-    <button class="btn btn-primary">Search</button> </form>
+        <input type="text" name="search" class=" form-control " placeholder="Enter username or repository name.. " [(ngModel)]='username' (keyup)="findUser()"></div>
+    <button class=" btn btn-primary ">Search</button>
+</form>

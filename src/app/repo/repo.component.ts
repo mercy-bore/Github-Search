@@ -9,9 +9,18 @@ import {Repo} from '../repo-class/repo';
   styleUrls: ['./repo.component.css']
 })
 export class RepoComponent implements OnInit {
-// repo!:Repo
-//   constructor( private githubService:GithubService,private http:HttpClient) {
-//   }
+repo!:Repo
+  constructor( private githubService:GithubService,private http:HttpClient) {
+  }
+ 
+  // searchProfile(searchItem: string){
+  //   this.githubService.repoRequest(searchItem).then((success)=> {
+  //     this.repo = this.githubService.repo
+  //     console.log( this.repo)
+  
+  //   })
+  
+
 
   ngOnInit(): void {
 
