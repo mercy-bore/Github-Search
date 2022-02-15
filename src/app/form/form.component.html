@@ -2,7 +2,7 @@
 <form (ngSubmit)="submitSearch()" action="" #form="ngForm" class="search-form">
     <div class="form-group card ">
         <label for="name">Search</label>
-        <input type="text" name="search" class="form-control" placeholder="Enter username or repository name.. " [(ngModel)]="query.searchQuery" #search="ngModel"> {{query.searchQuery}}
+        <input type="text" name="search" class="form-control" placeholder="Enter username .. " [(ngModel)]="query.searchQuery" #search="ngModel"> {{query.searchQuery}}
     </div>
     <button class=" btn btn-primary">Search</button>
 </form>
