@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # Hide this file for security purposes only
-environment.ts
+src/environments
