@@ -1,7 +1,8 @@
 <h3>GitHub Search</h3>
-<form>
-    <div class="form-group card">
+<form (ngSubmit)="submitSearch()" action="" #form="ngForm" class="search-form">
+    <div class="form-group card ">
         <label for="name">Search</label>
-        <input type="text" name="search" class=" form-control " placeholder="Enter username or repository name.. " [(ngModel)]='username' (keyup)="findUser()"></div>
-    <button class=" btn btn-primary ">Search</button>
+        <input type="text" name="search" class="form-control" placeholder="Enter username or repository name.. " [(ngModel)]="query.searchQuery" #search="ngModel"> {{query.searchQuery}}
+    </div>
+    <button class=" btn btn-primary">Search</button>
 </form>

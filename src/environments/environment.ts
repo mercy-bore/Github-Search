@@ -10,7 +10,6 @@ export const environment = {
 
 
 
-// api_key:"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"
 
 
 

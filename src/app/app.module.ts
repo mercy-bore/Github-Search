@@ -11,7 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HighlightDirective } from './highlight.directive';
 import { DatePipe } from './date.pipe';
 import { LandingComponent } from './landing/landing.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { LandingComponent } from './landing/landing.component';
   imports: [
     BrowserModule,
     AppRoutingModule,  
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],

@@ -1,39 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { GithubService } from '../github.service';
 import { HttpClient } from '@angular/common/http';
 import {User} from '../user-class/user';
-import {Repo} from '../repo-class/repo'
+import {Search} from '../search';
+import { SearchService } from '../search.service';
+import { Repo } from '../repo-class/repo';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  @Input() users!: String[];
+
 
 user!:User
-repo!:any
 userRepos!:any;
-username:string ='macc254'
+userArray:any;
+userquery!: Search
+//user search
+
+
+
+
+// username:string ='macc254'
 // githubservice:any;
  
   constructor( private githubService:GithubService,private http:HttpClient) {
    }
 
 
-searchProfile(searchItem: string){
-  this.githubService.profileRequest(searchItem).then((success)=> {
-    this.user = this.githubService.user
-    console.log( this.user)
-  }),
-  this.githubService.repoRequest(searchItem).then((success)=> {
-    this.repo = this.githubService.repo
-    console.log( this.repo)
+searchUser(query: Search){
+   this.userquery = query
+   
 
-  })
 }
+
   ngOnInit(): void {
-  this.searchProfile("macc254")
-  
+
+this.githubService.searchItem()
+ this.user = this.githubService.user
+ this.userArray = this.githubService.repoArray
   }
 
 
@@ -43,7 +50,4 @@ searchProfile(searchItem: string){
 
 
 
-function searchItem(searchItem: any) {
-  throw new Error('Function not implemented.');
-}
 

@@ -1,30 +1,27 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-            <app-form></app-form>
-        </div>
-        <div class="col-md-6">
             <h3>User Profile</h3>
             <div *ngIf="user" class="prof row">
                 <div class="col-md-6">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{user.avatar_url}}" class="rounded-circle" alt="...">
+                        <img src={{user.avatar_url}} class="rounded-circle" alt="...">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="view">
-                        <h5 class="card-title">Username:{{user.login}}</h5>
-                        <p class="card-text">Bio:{{user.bio}}</p>
+                        <h5 class="card-title">Username: {{user.login}}</h5>
+                        <p class="card-text">Bio: {{user.bio}}</p>
                     </div>
-                    <div class="follows ">
-                        <p class="lower "><span>Followers:</span>{{user.followers}} </p>
+                    <div class="follows">
+                        <p class="lower"><span>Followers:</span>{{user.followers}} </p>
                         <p><span>Following:</span>{{user.following}}</p>
                     </div>
-                    <div class="repos ">
-                        <p> Repositories:{{user.public_repos}}</p>
+                    <div>
+                        <!-- <p> Repositories:{{user.description}}</p> -->
                     </div>
                     <div class="view">
-                        <p><a href={{user.html_url}} class=" btn btn-success ">view profile on github</a></p>
+                        <p><a href={{user.html_url}} class="btn btn-success">view profile on github</a></p>
                     </div>
                 </div>
 
@@ -32,16 +29,20 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <h3>Repos</h3>
-        <div class="card-body " *ngFor="let repo of userRepos">
-            <div class="card row">
-                <div class="card-body">
-                    <h3>{{repo.name}}</h3>
-                    <p>Created: {{repo.created_at | completeDate}}</p>
-                    <p>Language Used: {{repo.language}}</p>
-                    <p>{{repo.description}}</p>
-                    <span><a href="{{repo.html_url}}" target="_blank" class="btn btn-success">View Project</a></span>
+    <div class="container">
+        <div class="row bg-transparent">
+            <h3>Repos</h3>
+            <div class="card-body text-light" *ngFor="let repo of userArray">
+                <div class="card row panel panel bg-transparent">
+                    <div class="col-md-12 card-title bg-transparent" style="width: 18rem;">
+                        <em>{{repo.name}} </em></div>
+                    <div class="col-md-12 card-content bg-transparent" style="width: 18rem;">Language used: {{repo.language}}</div>
+                    <div class="col-md-12 card-content bg-transparent" style="width: 18rem;"> {{repo.description}}</div>
+                    <p><a href={{repo.html_url}} class="btn btn-success">view project on github</a></p>
                 </div>
             </div>
         </div>
+
+    </div>
+
+</div>
