@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Repo } from './repo-class/repo';
 import {User} from './user-class/user';
 import axios from 'axios';
-import { environment } from 'src/environments/environment';
+import {environment} from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
