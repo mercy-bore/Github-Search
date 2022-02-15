@@ -29,10 +29,6 @@ export class SearchService {
         this.repoArray.push(new Repo( item.name,item.description, item.language,item.html_url))
       };
       console.log(this.repoArray)
-
-
-
-
   
   } catch(e){alert(e)}
   }

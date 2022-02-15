@@ -14,8 +14,8 @@
                         <p class="card-text">Bio: {{user.bio}}</p>
                     </div>
                     <div class="follows">
-                        <p class="lower"><span>Followers:</span>{{user.followers}} </p>
-                        <p><span>Following:</span>{{user.following}}</p>
+                        <p class="lower" class="btn btn-danger"> <span>Followers:</span>{{user.followers}}</p>
+                        <p class="btn btn-danger"><span>Following:</span>{{user.following}}</p>
                     </div>
                     <div>
                         <!-- <p> Repositories:{{user.description}}</p> -->
@@ -38,7 +38,7 @@
                         <em>{{repo.name}} </em></div>
                     <div class="col-md-12 card-content bg-transparent" style="width: 18rem;">Language used: {{repo.language}}</div>
                     <div class="col-md-12 card-content bg-transparent" style="width: 18rem;"> {{repo.description}}</div>
-                    <p><a href={{repo.html_url}} class="btn btn-success">view project on github</a></p>
+                    <p><a href={{repo.html_url}} class="btn btn-success">View Project on Github</a></p>
                 </div>
             </div>
         </div>
